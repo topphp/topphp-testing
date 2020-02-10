@@ -12,15 +12,15 @@
         }
     ],
     "require": {
-        "php": "~7.2"
+        "php": ">=7.2",
+        "phpunit/phpunit": "^8.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "7.5.20",
-        "squizlabs/php_codesniffer": "^3.5"
+        "squizlabs/php_codesniffer": "^3.5",
+        "swoole/ide-helper": "^4.4.0"
     },
     "autoload": {
         "psr-4": {
-            "Topphp\\Install\\": "install",
             "Topphp\\TopphpTesting\\": "src"
         }
     },
@@ -29,6 +29,9 @@
             "Topphp\\Test\\": "tests"
         }
     },
+    "bin": [
+        "co-phpunit"
+    ],
     "scripts": {
         "test": "phpunit",
         "check-style": "phpcs src tests",
