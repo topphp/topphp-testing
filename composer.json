@@ -13,6 +13,7 @@
     ],
     "require": {
         "php": ">=7.2",
+        "mockery/mockery": "^1.0",
         "phpunit/phpunit": "^8.0.0"
     },
     "require-dev": {
@@ -30,14 +31,17 @@
         }
     },
     "bin": [
-        "co-phpunit"
+        "bin/co-phpunit"
     ],
     "scripts": {
-        "test": "phpunit",
+        "test": "./vendor/bin/phpunit -c ./phpunit.xml.dist",
         "check-style": "phpcs src tests",
         "fix-style": "phpcbf src tests"
     },
     "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.0-dev"
+        },
         "think": {
             "services": [],
             "config": []

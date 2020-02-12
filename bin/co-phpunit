@@ -24,6 +24,7 @@ Coroutine::create(function () {
 
     foreach (array(
                  __DIR__ . '/../../autoload.php',
+                 __DIR__ . '/../../vendor/autoload.php',
                  __DIR__ . '/../vendor/autoload.php',
                  __DIR__ . '/vendor/autoload.php'
              ) as $file) {
@@ -33,9 +34,7 @@ Coroutine::create(function () {
             break;
         }
     }
-
     unset($file);
-
     if (!defined('PHPUNIT_COMPOSER_INSTALL')) {
         fwrite(
             STDERR,
@@ -46,15 +45,12 @@ Coroutine::create(function () {
 
         die(1);
     }
-
     $options = getopt('', array('prepend:'));
-
     if (isset($options['prepend'])) {
         require $options['prepend'];
     }
 
     unset($options);
-
     require PHPUNIT_COMPOSER_INSTALL;
 
     $code = PHPUnit\TextUI\Command::main(false);
