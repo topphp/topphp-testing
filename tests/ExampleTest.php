@@ -4,15 +4,17 @@ declare(strict_types=1);
 
 namespace Topphp\Test;
 
-use PHPUnit\Framework\TestCase;
+use Topphp\TopphpTesting\HttpTestCase;
 
-class ExampleTest extends TestCase
+class ExampleTest extends HttpTestCase
 {
-    /**
-     * Test that true does in fact equal true
-     */
-    public function testTrueIsTrue()
+    public function testHttpRequest()
     {
-        $this->assertTrue(true);
+        echo $res = $this->create([
+            'base_uri' => '127.0.0.1:9501'
+        ])->get('/', [
+
+        ])->getBody();
+        $this->assertEquals($res, '{"a":"abcdef"}');
     }
 }
