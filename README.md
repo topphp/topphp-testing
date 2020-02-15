@@ -1,4 +1,4 @@
-# component-builder
+# topphp-testing
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -7,10 +7,8 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
-> 这就是你描述的地方。试着把它限制在一两段内，然后可能会提到
-您支持的psr，以避免与用户和贡献者产生任何混淆。
+> 单元测试组件,除了具备phpunit的功能外,又集成了guzzlehttp,可以进行http请求的
+> 支持 get,post,delete,put,patch 等等操作
 
 ## Structure
 > 组件结构
@@ -31,14 +29,33 @@ vendor/
 Via Composer
 
 ``` bash
-$ composer create-project topphp/component-builder 你的组件名称
+$ composer require topphp/topphp-testing
 ```
 
 ## Usage
 
 ``` php
-$skeleton = new topphp\componentBuilder();
-echo $skeleton->echoPhrase('Hello, TOPPHP!');
+<?php
+
+declare(strict_types=1);
+
+namespace Topphp\Test;
+
+use Topphp\TopphpTesting\HttpTestCase;
+
+class ExampleTest extends HttpTestCase
+{
+    public function testHttpRequest()
+    {
+        echo $res = $this->create([
+            'base_uri' => '127.0.0.1:9501'
+        ])->get('/', [
+
+        ])->getBody();
+        $this->assertEquals($res, '{"a":"abcdef"}');
+    }
+}
+
 ```
 
 ## Change log
@@ -68,17 +85,17 @@ If you discover any security related issues, please email sleep@kaituocn.com ins
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/topphp/component-builder.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/topphp/topphp-testing.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/topphp/component-builder/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/topphp/component-builder.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/topphp/component-builder.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/topphp/component-builder.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/topphp/topphp-testing/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/topphp/topphp-testing.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/topphp/topphp-testing.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/topphp/topphp-testing.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/topphp/component-builder
-[link-travis]: https://travis-ci.org/topphp/component-builder
-[link-scrutinizer]: https://scrutinizer-ci.com/g/topphp/component-builder/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/topphp/component-builder
-[link-downloads]: https://packagist.org/packages/topphp/component-builder
+[link-packagist]: https://packagist.org/packages/topphp/topphp-testing
+[link-travis]: https://travis-ci.org/topphp/topphp-testing
+[link-scrutinizer]: https://scrutinizer-ci.com/g/topphp/topphp-testing/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/topphp/topphp-testing
+[link-downloads]: https://packagist.org/packages/topphp/topphp-testing
 [link-author]: https://github.com/topphp
 [link-contributors]: ../../contributors
