@@ -11,4 +11,11 @@ namespace Topphp\TopphpTesting;
 
 class TestCase extends \PHPUnit\Framework\TestCase
 {
+    public function __construct($name = null, array $data = [], $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+        if (extension_loaded('swoole')) {
+            Swoole\Runtime::enableCoroutine(true);
+        }
+    }
 }
