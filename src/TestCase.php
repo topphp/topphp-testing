@@ -15,7 +15,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     {
         parent::__construct($name, $data, $dataName);
         if (extension_loaded('swoole')) {
-            Swoole\Runtime::enableCoroutine(true);
+            \Swoole\Runtime::enableCoroutine(true);
         }
     }
 }
