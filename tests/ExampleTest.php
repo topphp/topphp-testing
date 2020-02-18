@@ -8,13 +8,16 @@ use Topphp\TopphpTesting\HttpTestCase;
 
 class ExampleTest extends HttpTestCase
 {
-    public function testHttpRequest()
-    {
-        echo $res = $this->create([
-            'base_uri' => '127.0.0.1:9501'
-        ])->get('/', [
 
-        ])->getBody();
-        $this->assertEquals($res, '{"a":"abcdef"}');
+    public function testHttpGetRequest()
+    {
+        $domain = "http://39.100.41.225:8805/";
+        $requestUrl = "http://39.100.41.225:8805/TestBai/Guzzle";
+
+    }
+
+    public function testHttpPostRequest()
+    {
+
     }
 }
