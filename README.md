@@ -25,10 +25,10 @@ vendor/
 
 ## 安装
 
-骨架安装组件
+安装组件
 
 ``` bash
-    composer require topphp/topphp-testing=dev-master
+    composer require topphp/topphp-testing
 ```
 
 ## 用法
