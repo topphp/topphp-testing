@@ -33,7 +33,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
         }
         parent::__construct($name, $data, $dataName);
         if (extension_loaded('swoole')) {
-            \Swoole\Runtime::enableCoroutine(true);
+            \Swoole\Runtime::enableCoroutine(self::$config['Http']['Http']['is_coroutine']);
         }
         self::$httpClient = Client::getInstance(self::$config['Http'])->cli("http");
     }
