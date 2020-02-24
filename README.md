@@ -7,7 +7,8 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-> 单元测试组件,除了具备phpunit的功能外,又集成了guzzlehttp,可以进行http请求的
+> 单元测试组件,除了具备phpunit的功能外,又集成了topphp客户端,可以进行http请求
+
 > 支持 get,post,delete,put,patch 等等操作
 
 ## Structure
@@ -15,8 +16,6 @@
 
 ```
 bin/        
-build/
-docs/
 config/
 src/
 tests/
@@ -24,78 +23,60 @@ vendor/
 ```
 
 
-## Install
+## 安装
 
-Via Composer
-
-``` bash
-$ composer require topphp/topphp-testing
-```
-
-## Usage
-
-``` php
-<?php
-
-declare(strict_types=1);
-
-namespace Topphp\Test;
-
-use Topphp\TopphpTesting\HttpTestCase;
-
-class ExampleTest extends HttpTestCase
-{
-    public function testHttpRequest()
-    {
-        echo $res = $this->create([
-            'base_uri' => '127.0.0.1:9501'
-        ])->get('/', [
-
-        ])->getBody();
-        $this->assertEquals($res, '{"a":"abcdef"}');
-    }
-}
-
-```
-
-## Change log
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Testing
+安装组件
 
 ``` bash
-$ composer test
+    composer require topphp/topphp-testing
 ```
 
-## Contributing
+## 用法
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
+```php
+    单元测试文件只需要继承 HttpTestCase 即可通过如下方式调用http请求：
+    self::$httpClient->get("http://www.baidu.com");
+```
 
-## Security
+## 修改日志
 
-If you discover any security related issues, please email sleep@kaituocn.com instead of using the issue tracker.
+有关最近更改的内容的详细信息，请参阅更改日志（[CHANGELOG](CHANGELOG.md)）。
 
-## Credits
+## 测试
+
+``` bash
+   组件单元测试 ./vendor/bin/phpunit tests/ExampleTest.php
+```
+
+## 贡献
+
+详情请参阅贡献（[CONTRIBUTING](CONTRIBUTING.md)）和行为准则（[CODE_OF_CONDUCT](CODE_OF_CONDUCT.md)）。
+
+
+## 安全
+
+如果您发现任何与安全相关的问题，请发送电子邮件至sleep@kaitoocn.com，而不要使用问题跟踪器。
+
+## 信用
 
 - [topphp][link-author]
 - [All Contributors][link-contributors]
 
-## License
+## 许可证
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/topphp/topphp-testing.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/topphp/component-builder.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/topphp/topphp-testing/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/topphp/topphp-testing.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/topphp/topphp-testing.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/topphp/topphp-testing.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/topphp/component-builder/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/topphp/component-builder.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/topphp/component-builder.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/topphp/component-builder.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/topphp/topphp-testing
-[link-travis]: https://travis-ci.org/topphp/topphp-testing
-[link-scrutinizer]: https://scrutinizer-ci.com/g/topphp/topphp-testing/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/topphp/topphp-testing
-[link-downloads]: https://packagist.org/packages/topphp/topphp-testing
+[link-packagist]: https://packagist.org/packages/topphp/component-builder
+[link-travis]: https://travis-ci.org/topphp/component-builder
+[link-scrutinizer]: https://scrutinizer-ci.com/g/topphp/component-builder/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/topphp/component-builder
+[link-downloads]: https://packagist.org/packages/topphp/component-builder
 [link-author]: https://github.com/topphp
 [link-contributors]: ../../contributors
