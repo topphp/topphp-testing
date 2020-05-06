@@ -47,7 +47,9 @@
         },
         "think": {
             "services": [],
-            "config": []
+            "config": {
+                "topphpClientHttp": "config/topphpClientHttp.php"
+            }
         }
     },
     "config": {
