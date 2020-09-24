@@ -14,7 +14,7 @@
     "require": {
         "php": ">=7.2",
         "ext-json": "*",
-        "guzzlehttp/guzzle": "^6.5",
+        "guzzlehttp/guzzle": "^6.3",
         "mockery/mockery": "^1.0",
         "phpunit/phpunit": "^8.0.0",
         "topphp/topphp-client": "^1.0"
